@@ -288,6 +288,19 @@
       }
     }
   },
+
+  {
+    "type": "STREAM",
+    "stream": {
+      "stream_state": {
+        "created_at": "2025-03-03T03:47:46-08:00"
+      },
+      "stream_descriptor": {
+        "name": "orders_graph_ql"
+      }
+    }
+  },
+  
   {
     "type": "STREAM",
     "stream": {

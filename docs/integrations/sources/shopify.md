@@ -38,6 +38,7 @@ This Source is capable of syncing the following core Streams:
 * [Orders Risks](https://shopify.dev/api/admin/rest/reference/orders/order-risk)
 * [Products](https://help.shopify.com/en/api/reference/products)
 * [Products (GraphQL)](https://shopify.dev/api/admin-graphql/2022-10/queries/products)
+* [Orders (GraphQL)](https://shopify.dev/api/admin-graphql/2022-10/queries/orders)
 * [Transactions](https://help.shopify.com/en/api/reference/orders/transaction)
 * [Balance Transactions](https://shopify.dev/api/admin-rest/2021-07/resources/transactions)
 * [Pages](https://help.shopify.com/en/api/reference/online-store/page)
