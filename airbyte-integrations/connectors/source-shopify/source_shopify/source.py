@@ -453,7 +453,7 @@ class ProductsGraphQl(IncrementalShopifyStream):
            
 class OrdersGraphQl(IncrementalShopifyStream):
     filter_field = "createdAt"
-    cursor_field = "createdAt"
+    cursor_field = "updatedAt"
     data_field = "graphql"
     http_method = "POST"
     limit = 20

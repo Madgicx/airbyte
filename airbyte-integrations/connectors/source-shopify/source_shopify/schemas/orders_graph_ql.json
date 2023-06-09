@@ -15,10 +15,12 @@
         "type": ["null", "string"]
       },
       "createdAt": {
-        "type": ["null", "string"]
+        "type": ["null", "string"],
+        "format": "date-time"
       },
       "updatedAt": {
-        "type": ["null", "string"]
+        "type": ["null", "string"],
+        "format": "date-time"
       },
 
       "customer": {
@@ -46,7 +48,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -57,7 +59,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -73,7 +75,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -84,7 +86,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -101,7 +103,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -112,7 +114,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -129,7 +131,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -140,7 +142,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -156,7 +158,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -167,7 +169,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -183,7 +185,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]
@@ -194,7 +196,7 @@
             "type": ["null", "object"],
             "properties": {
               "amount": {
-                "type": ["null", "string"]
+                "type": ["null", "number"]
               },
               "currencyCode": {
                 "type": ["null", "string"]

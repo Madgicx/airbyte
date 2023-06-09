@@ -90,10 +90,10 @@
         "json_schema": {},
         "supported_sync_modes": ["incremental", "full_refresh"],
         "source_defined_cursor": true,
-        "default_cursor_field": ["createdAt"]
+        "default_cursor_field": ["updatedAt"]
       },
       "sync_mode": "incremental",
-      "cursor_field": ["createdAt"],
+      "cursor_field": ["updatedAt"],
       "destination_sync_mode": "append"
     },
     {
