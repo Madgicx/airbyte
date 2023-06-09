@@ -14,6 +14,7 @@ SCOPES_MAPPING = {
     "read_customers": ["Customers", "MetafieldCustomers"],
     "read_orders": [
         "Orders",
+        "OrdersGraphQl",
         "AbandonedCheckouts",
         "TenderTransactions",
         "Transactions",

@@ -59,3 +59,39 @@ def get_query_products(first: int, filter_field: str, filter_value: str, next_pa
     products.page_info.has_next_page()
     products.page_info.end_cursor()
     return str(op)
+
+def get_query_orders(first: int, filter_field: str, filter_value: str, next_page_token: Optional[str]):
+    op = sgqlc.operation.Operation(_schema_root.query_type)
+    snake_case_filter_field = _camel_to_snake(filter_field)
+    if next_page_token:
+        orders = op.orders(first=first, query=f"{snake_case_filter_field}:>'{filter_value}'", after=next_page_token)
+    else:
+        orders = op.orders(first=first, query=f"{snake_case_filter_field}:>'{filter_value}'")
+    
+    orders.nodes.id()
+    orders.nodes.name()
+    orders.nodes.currency_code()
+    orders.nodes.updated_at()
+    orders.nodes.created_at()
+    orders.nodes.customer()
+    orders.nodes.customer.id()
+    orders.nodes.customer.number_of_orders()
+    orders.nodes.display_financial_status()
+    orders.nodes.cancel_reason()
+    orders.nodes.total_refunded_set()
+    orders.nodes.net_payment_set()
+    orders.nodes.total_tax_set()
+    orders.nodes.total_shipping_price_set()
+    orders.nodes.current_total_duties_set()
+    orders.nodes.current_total_price_set()
+    orders.nodes.customer_journey_summary()
+    orders.nodes.customer_journey_summary.customer_order_index()
+    orders.nodes.customer_journey_summary.moments_count()
+    orders.nodes.customer_journey_summary.first_visit()
+    orders.nodes.customer_journey_summary.last_visit()
+    orders.page_info()
+    orders.page_info.has_next_page()
+    orders.page_info.end_cursor()
+    return str(op)
+
+

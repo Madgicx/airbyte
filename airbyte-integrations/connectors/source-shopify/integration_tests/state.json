@@ -5,6 +5,9 @@
   "orders": {
       "updated_at": "2022-10-12T11:15:27-07:00"
   },
+  "orders_graph_ql": {
+    "updated_at": "2022-10-12T11:15:27-07:00"
+  },
   "draft_orders": {
       "updated_at": "2022-10-08T05:07:29-07:00"
   },
