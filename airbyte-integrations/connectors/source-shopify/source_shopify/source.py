@@ -452,14 +452,24 @@ class ProductsGraphQl(IncrementalShopifyStream):
 
            
 class OrdersGraphQl(IncrementalShopifyStream):
-    filter_field = "createdAt"
     cursor_field = "updatedAt"
+    filter_field = "updatedAt"
     data_field = "graphql"
     http_method = "POST"
     limit = 20
+    
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.stream_state = None
 
     def path(self, **kwargs) -> str:
         return f"{self.data_field}.json"
+    
+    @property
+    def default_filter_field_value(self) -> Union[int, str]:
+        if self.stream_state:
+            return self.stream_state.get(self.cursor_field, self.config["start_date"])  
+        return self.config["start_date"]  
 
     def request_params(
         self,
@@ -504,6 +514,16 @@ class OrdersGraphQl(IncrementalShopifyStream):
                 self.logger.warn(f"Unexpected error in `parse_ersponse`: {e}, the actual response data: {response.text}")
                 yield {}
 
+    def read_records(
+        self,
+        stream_state: Mapping[str, Any] = None,
+        stream_slice: Optional[Mapping[str, Any]] = None,
+        **kwargs,
+    ) -> Iterable[Mapping[str, Any]]:
+        """Reading child streams records for each `id`"""
+        self.stream_state = stream_state
+        records = super().read_records(stream_slice=stream_slice, **kwargs)
+        yield from self.filter_records_newer_than_state(stream_state=stream_state, records_slice=records)
 
 class MetafieldProducts(MetafieldShopifySubstream):
     parent_stream_class: object = Products
@@ -869,12 +889,12 @@ class SourceShopify(AbstractSource):
             OrderRefunds(config),
             OrderRisks(config),
             Orders(config),
+            OrdersGraphQl(config),
             Pages(config),
             PriceRules(config),
             ProductImages(config),
             Products(config),
             ProductsGraphQl(config),
-            OrdersGraphQl(config),
             ProductVariants(config),
             Shop(config),
             SmartCollections(config),
