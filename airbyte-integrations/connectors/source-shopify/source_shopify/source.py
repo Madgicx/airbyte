@@ -5,6 +5,7 @@
 
 from abc import ABC, abstractmethod
 from functools import cached_property
+from datetime import datetime, timedelta
 from typing import Any, Dict, Iterable, List, Mapping, MutableMapping, Optional, Tuple, Union
 from urllib.parse import parse_qsl, urlparse
 
@@ -469,6 +470,8 @@ class OrdersGraphQl(IncrementalShopifyStream):
     def default_filter_field_value(self) -> Union[int, str]:
         if isinstance(self.stream_state, dict) and self.stream_state.get(self.cursor_field):
             last_updatedAt = self.stream_state[self.cursor_field]
+            # make small gap for fetching all data 
+            last_updatedAt = datetime.strftime(datetime.strptime(last_updatedAt, "%Y-%m-%dT%H:%M:%SZ") - timedelta(days=1), "%Y-%m-%dT%H:%M:%SZ")
             return last_updatedAt
         return self.config["start_date"]  
 
