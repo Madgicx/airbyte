@@ -456,7 +456,7 @@ class OrdersGraphQl(IncrementalShopifyStream):
     filter_field = "updatedAt"
     data_field = "graphql"
     http_method = "POST"
-    limit = 20
+    limit = 10 # Rate limit issue
     
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
@@ -467,8 +467,9 @@ class OrdersGraphQl(IncrementalShopifyStream):
     
     @property
     def default_filter_field_value(self) -> Union[int, str]:
-        if self.stream_state:
-            return self.stream_state.get(self.cursor_field, self.config["start_date"])  
+        if isinstance(self.stream_state, dict) and self.stream_state.get(self.cursor_field):
+            last_updatedAt = self.stream_state[self.cursor_field]
+            return last_updatedAt
         return self.config["start_date"]  
 
     def request_params(
