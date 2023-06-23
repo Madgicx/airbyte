@@ -22,17 +22,8 @@
         "type": ["null", "string"],
         "format": "date-time"
       },
-
       "customer": {
-        "type": ["null", "object"],
-        "properties": {
-            "id": {
-                "type": ["null", "string"]
-            },
-            "number_of_orders": {
-                "type": ["null", "string"]
-            }
-        }
+        "type": ["null", "object"]
       },
       "displayFinancialStatus": {
         "type": ["null", "string"]
@@ -42,295 +33,27 @@
       },
 
       "totalRefundedSet": {
-        "type": ["null", "object"],
-        "properties": {
-          "shopMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          },
-          "presentmentMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          }
-        }
+        "type": ["null", "object"]
       },
       "netPaymentSet": {
-        "type": ["null", "object"],
-        "properties": {
-          "shopMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          },
-          "presentmentMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          }
-        }
+        "type": ["null", "object"]
       },
 
       "totalTaxSet": {
-        "type": ["null", "object"],
-        "properties": {
-          "shopMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          },
-          "presentmentMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          }
-        }
+        "type": ["null", "object"]
       },
-      
       "totalShippingPriceSet": {
-        "type": ["null", "object"],
-        "properties": {
-          "shopMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          },
-          "presentmentMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          }
-        }
+        "type": ["null", "object"]
       },
       "currentTotalDutiesSet": {
-        "type": ["null", "object"],
-        "properties": {
-          "shopMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          },
-          "presentmentMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          }
-        }
+        "type": ["null", "object"]
       },
       "currentTotalPriceSet": {
-        "type": ["null", "object"],
-        "properties": {
-          "shopMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          },
-          "presentmentMoney": {
-            "type": ["null", "object"],
-            "properties": {
-              "amount": {
-                "type": ["null", "number"]
-              },
-              "currencyCode": {
-                "type": ["null", "string"]
-              }
-            }
-          }
-        }
+        "type": ["null", "object"]
       },
       "customerJourneySummary": {
-        "type": ["null", "object"],
-        "properties": {
-            "momentsCount": {
-              "type": ["null", "integer"]
-            },
-            "firstVisit": {
-                "type": ["null", "object"],
-                "properties": {
-                    "occurredAt": {
-                        "type": ["null", "string"],
-                        "format": "date-time"
-                    },
-                    "id":{
-                        "type": ["null", "string"]
-                    },
-                    "landingPage": {
-                        "type": ["null", "string"]
-                    },
-                    "landingPageHtml": {
-                        "type": ["null", "string"]
-                    },
-                    "marketingEvent": {
-                        "type": ["null", "string"]
-                    },
-                    "referralCode": {
-                        "type": ["null", "string"]
-                    },
-                    "referralInfoHtml": {
-                        "type": ["null", "string"]
-                    },
-                    "referrerUrl": {
-                        "type": ["null", "string"]
-                    },
-                    "source": {
-                        "type": ["null", "string"]
-                    },
-                    "sourceDescription": {
-                        "type": ["null", "string"]
-                    },
-                    "sourceType": {
-                        "type": ["null", "string"]
-                    },
-                    "utmParameters": {
-                        "type": ["null", "object"],
-                        "properties": {
-                            "campaign": {
-                                "type": ["null", "string"]
-                            },
-                            "content":{
-                                "type": ["null", "string"]
-                            },
-                            "medium":{
-                                "type": ["null", "string"]
-                            },
-                            "source":{
-                                "type": ["null", "string"]
-                            },
-                            "term":{
-                                "type": ["null", "string"]
-                            }
-                        }
-                    }
-                }
-            },
-            "lastVisit": {
-                "type": ["null", "object"],
-                "properties": {
-                    "occurredAt": {
-                        "type": ["null", "string"],
-                        "format": "date-time"
-                    },
-                    "id":{
-                        "type": ["null", "string"]
-                    },
-                    "landingPage": {
-                        "type": ["null", "string"]
-                    },
-                    "landingPageHtml": {
-                        "type": ["null", "string"]
-                    },
-                    "marketingEvent": {
-                        "type": ["null", "string"]
-                    },
-                    "referralCode": {
-                        "type": ["null", "string"]
-                    },
-                    "referralInfoHtml": {
-                        "type": ["null", "string"]
-                    },
-                    "referrerUrl": {
-                        "type": ["null", "string"]
-                    },
-                    "source": {
-                        "type": ["null", "string"]
-                    },
-                    "sourceDescription": {
-                        "type": ["null", "string"]
-                    },
-                    "sourceType": {
-                        "type": ["null", "string"]
-                    },
-                    "utmParameters": {
-                        "type": ["null", "object"],
-                        "properties": {
-                            "campaign": {
-                                "type": ["null", "string"]
-                            },
-                            "content":{
-                                "type": ["null", "string"]
-                            },
-                            "medium":{
-                                "type": ["null", "string"]
-                            },
-                            "source":{
-                                "type": ["null", "string"]
-                            },
-                            "term":{
-                                "type": ["null", "string"]
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        "type": ["null", "object"]
       }
     }
-  }
+}
   
