@@ -10,19 +10,19 @@
       "type": ["null", "string"]
     },
     "action_values": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "ad_click_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "ad_id": {
       "type": ["null", "string"]
     },
     "ad_impression_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "ad_name": {
       "type": ["null", "string"]
@@ -64,19 +64,19 @@
       "type": ["null", "number"]
     },
     "catalog_segment_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "catalog_segment_value": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "catalog_segment_value_mobile_purchase_roas": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "catalog_segment_value_omni_purchase_roas": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "catalog_segment_value_website_purchase_roas": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "clicks": {
       "type": ["null", "integer"]
@@ -85,31 +85,31 @@
       "type": ["null", "string"]
     },
     "conversion_values": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "conversions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "converted_product_quantity": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "converted_product_value": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_15_sec_video_view": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_2_sec_continuous_video_view": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_action_type": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_ad_click": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_conversion": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_estimated_ad_recallers": {
       "type": ["null", "number"]
@@ -121,13 +121,13 @@
       "type": ["null", "number"]
     },
     "cost_per_outbound_click": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_thruplay": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_unique_action_type": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cost_per_unique_click": {
       "type": ["null", "number"]
@@ -136,7 +136,7 @@
       "type": ["null", "number"]
     },
     "cost_per_unique_outbound_click": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "cpc": {
       "type": ["null", "number"]
@@ -214,7 +214,7 @@
       "type": ["null", "number"]
     },
     "instant_experience_outbound_clicks": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "labels": {
       "type": ["null", "string"]
@@ -223,7 +223,7 @@
       "type": ["null", "string"]
     },
     "mobile_app_purchase_roas": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "objective": {
       "type": ["null", "string"]
@@ -232,13 +232,13 @@
       "type": ["null", "string"]
     },
     "outbound_clicks": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "outbound_clicks_ctr": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "purchase_roas": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "qualifying_question_qualify_answer_rate": {
       "type": ["null", "number"]
@@ -256,7 +256,7 @@
       "type": ["null", "number"]
     },
     "unique_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "unique_clicks": {
       "type": ["null", "integer"]
@@ -274,44 +274,44 @@
       "type": ["null", "number"]
     },
     "unique_outbound_clicks": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "unique_outbound_clicks_ctr": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "updated_time": {
       "format": "date",
       "type": ["null", "string"]
     },
     "video_15_sec_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_30_sec_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_avg_time_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_continuous_2_sec_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_p100_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_p25_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_p50_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_p75_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_p95_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_play_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "video_play_curve_actions": {
       "$ref": "ads_histogram_stats.json"
@@ -326,13 +326,13 @@
       "$ref": "ads_histogram_stats.json"
     },
     "video_time_watched_actions": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "website_ctr": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "website_purchase_roas": {
-      "type": ["null", "object"]
+      "type": ["null", "array"]
     },
     "wish_bid": {
       "type": ["null", "number"]

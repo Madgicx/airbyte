@@ -8,7 +8,7 @@ from typing import Any, List, Mapping, Optional, Tuple, Type
 import facebook_business
 import pendulum
 import requests
-from airbyte_cdk.models import AuthSpecification, ConnectorSpecification, DestinationSyncMode, FailureType, OAuth2Specification
+from airbyte_cdk.models import ConnectorSpecification, DestinationSyncMode, FailureType
 from airbyte_cdk.sources import AbstractSource
 from airbyte_cdk.sources.streams import Stream
 from airbyte_cdk.utils import AirbyteTracedException
@@ -33,14 +33,13 @@ from source_facebook_marketing.streams import (
     CustomConversions,
     Images,
     Videos,
-    
     AdsInsightsActionType,
     AdsInsightsAge,
     AdsInsightsGender,
     AdsInsightsAgeAndGender,
     AdsInsightsCountry,
     AdsInsightsRegion,
-    AdsInsightsDMA,
+    AdsInsightsDMAActionTypeActionType,
     AdsInsightsImpressionDevice,
     AdsInsightsDevicePlatform,
     AdsInsightsPublisherPlatform,
@@ -54,7 +53,7 @@ from source_facebook_marketing.streams import (
     AdsetInsightsAgeAndGender,
     AdsetInsightsCountry,
     AdsetInsightsRegion,
-    AdsetInsightsDMA,
+    AdsetInsightsDMAActionType,
     AdsetInsightsImpressionDevice,
     AdsetInsightsDevicePlatform,
     AdsetInsightsPublisherPlatform,
@@ -68,7 +67,7 @@ from source_facebook_marketing.streams import (
     CampaignInsightsAgeAndGender,
     CampaignInsightsCountry,
     CampaignInsightsRegion,
-    CampaignInsightsDMA,
+    CampaignInsightsDMAActionType,
     CampaignInsightsImpressionDevice,
     CampaignInsightsDevicePlatform,
     CampaignInsightsPublisherPlatform,
@@ -82,7 +81,7 @@ from source_facebook_marketing.streams import (
     AdaccountInsightsAgeAndGender,
     AdaccountInsightsCountry,
     AdaccountInsightsRegion,
-    AdaccountInsightsDMA,
+    AdaccountInsightsDMAActionType,
     AdaccountInsightsImpressionDevice,
     AdaccountInsightsDevicePlatform,
     AdaccountInsightsPublisherPlatform,
@@ -176,11 +175,7 @@ class SourceFacebookMarketing(AbstractSource):
                 max_batch_size=config.max_batch_size,
             ),
             AdsInsights(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            AdsInsightsAgeAndGender(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            AdsInsightsCountry(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            AdsInsightsRegion(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsDma(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            AdsInsightsPlatformAndDevice(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsActionCarouselCard(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsActionConversionDevice(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsActionProductID(page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
@@ -232,7 +227,7 @@ class SourceFacebookMarketing(AbstractSource):
             AdsInsightsAgeAndGender(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsCountry(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsRegion(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            AdsInsightsDMA(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
+            AdsInsightsDMAActionTypeActionType(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsImpressionDevice(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsDevicePlatform(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsInsightsPublisherPlatform(level='ad', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
@@ -247,7 +242,7 @@ class SourceFacebookMarketing(AbstractSource):
             AdsetInsightsAgeAndGender(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsetInsightsCountry(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsetInsightsRegion(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            AdsetInsightsDMA(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
+            AdsetInsightsDMAActionType(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsetInsightsImpressionDevice(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsetInsightsDevicePlatform(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdsetInsightsPublisherPlatform(level='adset', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
@@ -262,7 +257,7 @@ class SourceFacebookMarketing(AbstractSource):
             CampaignInsightsAgeAndGender(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             CampaignInsightsCountry(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             CampaignInsightsRegion(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            CampaignInsightsDMA(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
+            CampaignInsightsDMAActionType(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             CampaignInsightsImpressionDevice(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             CampaignInsightsDevicePlatform(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             CampaignInsightsPublisherPlatform(level='campaign', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
@@ -277,7 +272,7 @@ class SourceFacebookMarketing(AbstractSource):
             AdaccountInsightsAgeAndGender(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdaccountInsightsCountry(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdaccountInsightsRegion(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
-            AdaccountInsightsDMA(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
+            AdaccountInsightsDMAActionType(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdaccountInsightsImpressionDevice(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdaccountInsightsDevicePlatform(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
             AdaccountInsightsPublisherPlatform(level='account', page_size=config.page_size, max_batch_size=config.max_batch_size, **insights_args),
@@ -300,9 +295,9 @@ class SourceFacebookMarketing(AbstractSource):
             supportsIncremental=True,
             supported_destination_sync_modes=[DestinationSyncMode.append],
             connectionSpecification=ConnectorConfig.schema(),
-            authSpecification=AuthSpecification(
+            authSpecification=dict(
                 auth_type="oauth2.0",
-                oauth2Specification=OAuth2Specification(
+                oauth2Specification=dict(
                     rootObject=[], oauthFlowInitParameters=[], oauthFlowOutputParameters=[["access_token"]]
                 ),
             ),

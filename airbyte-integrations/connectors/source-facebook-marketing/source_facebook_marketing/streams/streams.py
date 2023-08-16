@@ -265,7 +265,7 @@ class AdsInsightsRegion(AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
 
-class AdsInsightsDMA(AdsInsights):
+class AdsInsightsDMAActionTypeActionType(AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
    
@@ -324,7 +324,7 @@ class AdsetInsightsRegion(AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
 
-class AdsetInsightsDMA(AdsInsights):
+class AdsetInsightsDMAActionType(AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
    
@@ -383,7 +383,7 @@ class CampaignInsightsRegion(AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
 
-class CampaignInsightsDMA(AdsInsights):
+class CampaignInsightsDMAActionType(AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
    
@@ -442,7 +442,7 @@ class AdaccountInsightsRegion(AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
 
-class AdaccountInsightsDMA(AdsInsights):
+class AdaccountInsightsDMAActionType(AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
    
