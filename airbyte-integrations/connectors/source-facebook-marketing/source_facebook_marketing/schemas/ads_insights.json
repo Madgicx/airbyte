@@ -314,16 +314,16 @@
       "type": ["null", "array"]
     },
     "video_play_curve_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_retention_0_to_15s_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_retention_20_to_60s_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_retention_graph_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_time_watched_actions": {
       "type": ["null", "array"]
