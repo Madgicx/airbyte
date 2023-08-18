@@ -202,10 +202,6 @@ class Images(FBMarketingReversedIncrementalStream):
         return record[AdImage.Field.status] == AdImage.Status.deleted
 
 
-class AdsInsightsAgeAndGender(AdsInsights):
-    breakdowns = ["age", "gender"]
-
-
 class AdsInsightsCountry(AdsInsights):
     breakdowns = ["country"]
 
@@ -216,18 +212,6 @@ class AdsInsightsRegion(AdsInsights):
 
 class AdsInsightsDma(AdsInsights):
     breakdowns = ["dma"]
-
-
-class AdsInsightsPlatformAndDevice(AdsInsights):
-    breakdowns = ["publisher_platform", "platform_position", "impression_device"]
-    # FB Async Job fails for unknown reason if we set other breakdowns
-    # my guess: it fails because of very large cardinality of result set (Eugene K)
-    action_breakdowns = ["action_type"]
-
-
-class AdsInsightsActionType(AdsInsights):
-    breakdowns = []
-    action_breakdowns = ["action_type"]
 
 
 class AdsInsightsActionCarouselCard(AdsInsights):
@@ -256,36 +240,238 @@ class AdsInsightsActionVideoType(AdsInsights):
     action_breakdowns = ["action_video_type"]
 
 
-class AdsInsightsDeliveryDevice(AdsInsights):
-    breakdowns = ["device_platform"]
+# Ad Insights with Breakdowns 
+class AdsInsightsActionType(AdsInsights):
+    breakdowns = []
     action_breakdowns = ["action_type"]
-
-
-class AdsInsightsDeliveryPlatform(AdsInsights):
-    breakdowns = ["publisher_platform"]
-    action_breakdowns = ["action_type"]
-
-
-class AdsInsightsDeliveryPlatformAndDevicePlatform(AdsInsights):
-    breakdowns = ["publisher_platform", "device_platform"]
-    action_breakdowns = ["action_type"]
-
-
-class AdsInsightsDemographicsAge(AdsInsights):
+    
+class AdsInsightsAge(AdsInsights):
     breakdowns = ["age"]
     action_breakdowns = ["action_type"]
 
+class AdsInsightsGender(AdsInsights):
+    breakdowns = ["gender"]
+    action_breakdowns = ["action_type"]
 
-class AdsInsightsDemographicsCountry(AdsInsights):
+class AdsInsightsAgeAndGender(AdsInsights):
+    breakdowns = ["age", "gender"]
+    action_breakdowns = ["action_type"]
+
+class AdsInsightsCountry(AdsInsights):
     breakdowns = ["country"]
     action_breakdowns = ["action_type"]
 
-
-class AdsInsightsDemographicsDMARegion(AdsInsights):
-    breakdowns = ["dma"]
+class AdsInsightsRegion(AdsInsights):
+    breakdowns = ["region"]
     action_breakdowns = ["action_type"]
 
+class AdsInsightsDMAActionTypeActionType(AdsInsights):
+    breakdowns = ["dma"]
+    action_breakdowns = ["action_type"]
+   
+class AdsInsightsImpressionDevice(AdsInsights):
+    breakdowns = ["impression_device"]
+    action_breakdowns = ["action_type"]
 
-class AdsInsightsDemographicsGender(AdsInsights):
+class AdsInsightsDevicePlatform(AdsInsights):
+    breakdowns = ["device_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdsInsightsPublisherPlatform(AdsInsights):
+    breakdowns = ["publisher_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdsInsightsPublisherAndDevicePlatform(AdsInsights):
+    breakdowns = ["publisher_platform", "device_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdsInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
+    breakdowns = ["impression_device", "device_platform"]
+    action_breakdowns = ["action_type"]
+    
+class AdsInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "impression_device"]
+    action_breakdowns = ["action_type"]
+
+class AdsInsightsPlatformAndDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "platform_position", "impression_device"]
+    # FB Async Job fails for unknown reason if we set other breakdowns
+    # my guess: it fails because of very large cardinality of result set (Eugene K)
+    action_breakdowns = ["action_type"]
+
+# Adset insights with Breakdowns
+class AdsetInsightsActionType(AdsInsights):
+    breakdowns = []
+    action_breakdowns = ["action_type"]
+    
+class AdsetInsightsAge(AdsInsights):
+    breakdowns = ["age"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsGender(AdsInsights):
     breakdowns = ["gender"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsAgeAndGender(AdsInsights):
+    breakdowns = ["age", "gender"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsCountry(AdsInsights):
+    breakdowns = ["country"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsRegion(AdsInsights):
+    breakdowns = ["region"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsDMAActionType(AdsInsights):
+    breakdowns = ["dma"]
+    action_breakdowns = ["action_type"]
+   
+class AdsetInsightsImpressionDevice(AdsInsights):
+    breakdowns = ["impression_device"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsDevicePlatform(AdsInsights):
+    breakdowns = ["device_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsPublisherPlatform(AdsInsights):
+    breakdowns = ["publisher_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsPublisherAndDevicePlatform(AdsInsights):
+    breakdowns = ["publisher_platform", "device_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
+    breakdowns = ["impression_device", "device_platform"]
+    action_breakdowns = ["action_type"]
+    
+class AdsetInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "impression_device"]
+    action_breakdowns = ["action_type"]
+
+class AdsetInsightsPlatformAndDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "platform_position", "impression_device"]
+    # FB Async Job fails for unknown reason if we set other breakdowns
+    # my guess: it fails because of very large cardinality of result set (Eugene K)
+    action_breakdowns = ["action_type"]    
+
+# Campaign Insights with Breakdowns 
+class CampaignInsightsActionType(AdsInsights):
+    breakdowns = []
+    action_breakdowns = ["action_type"]
+    
+class CampaignInsightsAge(AdsInsights):
+    breakdowns = ["age"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsGender(AdsInsights):
+    breakdowns = ["gender"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsAgeAndGender(AdsInsights):
+    breakdowns = ["age", "gender"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsCountry(AdsInsights):
+    breakdowns = ["country"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsRegion(AdsInsights):
+    breakdowns = ["region"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsDMAActionType(AdsInsights):
+    breakdowns = ["dma"]
+    action_breakdowns = ["action_type"]
+   
+class CampaignInsightsImpressionDevice(AdsInsights):
+    breakdowns = ["impression_device"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsDevicePlatform(AdsInsights):
+    breakdowns = ["device_platform"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsPublisherPlatform(AdsInsights):
+    breakdowns = ["publisher_platform"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsPublisherAndDevicePlatform(AdsInsights):
+    breakdowns = ["publisher_platform", "device_platform"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
+    breakdowns = ["impression_device", "device_platform"]
+    action_breakdowns = ["action_type"]
+    
+class CampaignInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "impression_device"]
+    action_breakdowns = ["action_type"]
+
+class CampaignInsightsPlatformAndDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "platform_position", "impression_device"]
+    # FB Async Job fails for unknown reason if we set other breakdowns
+    # my guess: it fails because of very large cardinality of result set (Eugene K)
+    action_breakdowns = ["action_type"]
+    
+# Adaccount insights with breakdowns 
+class AdaccountInsightsActionType(AdsInsights):
+    breakdowns = []
+    action_breakdowns = ["action_type"]
+    
+class AdaccountInsightsAge(AdsInsights):
+    breakdowns = ["age"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsGender(AdsInsights):
+    breakdowns = ["gender"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsAgeAndGender(AdsInsights):
+    breakdowns = ["age", "gender"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsCountry(AdsInsights):
+    breakdowns = ["country"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsRegion(AdsInsights):
+    breakdowns = ["region"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsDMAActionType(AdsInsights):
+    breakdowns = ["dma"]
+    action_breakdowns = ["action_type"]
+   
+class AdaccountInsightsImpressionDevice(AdsInsights):
+    breakdowns = ["impression_device"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsDevicePlatform(AdsInsights):
+    breakdowns = ["device_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsPublisherPlatform(AdsInsights):
+    breakdowns = ["publisher_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsPublisherAndDevicePlatform(AdsInsights):
+    breakdowns = ["publisher_platform", "device_platform"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
+    breakdowns = ["impression_device", "device_platform"]
+    action_breakdowns = ["action_type"]
+    
+class AdaccountInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "impression_device"]
+    action_breakdowns = ["action_type"]
+
+class AdaccountInsightsPlatformAndDevice(AdsInsights):
+    breakdowns = ["publisher_platform", "platform_position", "impression_device"]
+    # FB Async Job fails for unknown reason if we set other breakdowns
+    # my guess: it fails because of very large cardinality of result set (Eugene K)
     action_breakdowns = ["action_type"]

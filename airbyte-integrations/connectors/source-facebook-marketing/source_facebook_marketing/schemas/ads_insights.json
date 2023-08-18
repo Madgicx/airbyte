@@ -10,19 +10,19 @@
       "type": ["null", "string"]
     },
     "action_values": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "ad_click_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "ad_id": {
       "type": ["null", "string"]
     },
     "ad_impression_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "ad_name": {
       "type": ["null", "string"]
@@ -64,19 +64,19 @@
       "type": ["null", "number"]
     },
     "catalog_segment_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "catalog_segment_value": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "catalog_segment_value_mobile_purchase_roas": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "catalog_segment_value_omni_purchase_roas": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "catalog_segment_value_website_purchase_roas": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "clicks": {
       "type": ["null", "integer"]
@@ -85,31 +85,31 @@
       "type": ["null", "string"]
     },
     "conversion_values": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "conversions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "converted_product_quantity": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "converted_product_value": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_15_sec_video_view": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_2_sec_continuous_video_view": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_action_type": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_ad_click": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_conversion": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_estimated_ad_recallers": {
       "type": ["null", "number"]
@@ -121,13 +121,13 @@
       "type": ["null", "number"]
     },
     "cost_per_outbound_click": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_thruplay": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_unique_action_type": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cost_per_unique_click": {
       "type": ["null", "number"]
@@ -136,7 +136,7 @@
       "type": ["null", "number"]
     },
     "cost_per_unique_outbound_click": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "cpc": {
       "type": ["null", "number"]
@@ -214,7 +214,7 @@
       "type": ["null", "number"]
     },
     "instant_experience_outbound_clicks": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "labels": {
       "type": ["null", "string"]
@@ -223,7 +223,7 @@
       "type": ["null", "string"]
     },
     "mobile_app_purchase_roas": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "objective": {
       "type": ["null", "string"]
@@ -232,13 +232,13 @@
       "type": ["null", "string"]
     },
     "outbound_clicks": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "outbound_clicks_ctr": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "purchase_roas": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "qualifying_question_qualify_answer_rate": {
       "type": ["null", "number"]
@@ -256,7 +256,7 @@
       "type": ["null", "number"]
     },
     "unique_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "unique_clicks": {
       "type": ["null", "integer"]
@@ -274,65 +274,65 @@
       "type": ["null", "number"]
     },
     "unique_outbound_clicks": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "unique_outbound_clicks_ctr": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "updated_time": {
       "format": "date",
       "type": ["null", "string"]
     },
     "video_15_sec_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_30_sec_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_avg_time_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_continuous_2_sec_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_p100_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_p25_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_p50_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_p75_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_p95_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_curve_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_retention_0_to_15s_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_retention_20_to_60s_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_play_retention_graph_actions": {
-      "$ref": "ads_histogram_stats.json"
+      "type": ["null", "array"]
     },
     "video_time_watched_actions": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "website_ctr": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "website_purchase_roas": {
-      "$ref": "ads_action_stats.json"
+      "type": ["null", "array"]
     },
     "wish_bid": {
       "type": ["null", "number"]
