@@ -303,175 +303,217 @@ class AdsInsightsPlatformAndDevice(AdsInsights):
 class AdsetInsightsActionType(AdsInsights):
     breakdowns = []
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
     
 class AdsetInsightsAge(AdsInsights):
     breakdowns = ["age"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsGender(AdsInsights):
     breakdowns = ["gender"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsAgeAndGender(AdsInsights):
     breakdowns = ["age", "gender"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsCountry(AdsInsights):
     breakdowns = ["country"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsRegion(AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsDMAActionType(AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
    
 class AdsetInsightsImpressionDevice(AdsInsights):
     breakdowns = ["impression_device"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsDevicePlatform(AdsInsights):
     breakdowns = ["device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsPublisherPlatform(AdsInsights):
     breakdowns = ["publisher_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsPublisherAndDevicePlatform(AdsInsights):
     breakdowns = ["publisher_platform", "device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
     breakdowns = ["impression_device", "device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
     
 class AdsetInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
     breakdowns = ["publisher_platform", "impression_device"]
     action_breakdowns = ["action_type"]
+    schema = "adset_insights"
 
 class AdsetInsightsPlatformAndDevice(AdsInsights):
     breakdowns = ["publisher_platform", "platform_position", "impression_device"]
     # FB Async Job fails for unknown reason if we set other breakdowns
     # my guess: it fails because of very large cardinality of result set (Eugene K)
-    action_breakdowns = ["action_type"]    
+    action_breakdowns = ["action_type"]   
+    schema = "adset_insights" 
 
 # Campaign Insights with Breakdowns 
 class CampaignInsightsActionType(AdsInsights):
     breakdowns = []
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
     
 class CampaignInsightsAge(AdsInsights):
     breakdowns = ["age"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsGender(AdsInsights):
     breakdowns = ["gender"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsAgeAndGender(AdsInsights):
     breakdowns = ["age", "gender"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsCountry(AdsInsights):
     breakdowns = ["country"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsRegion(AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsDMAActionType(AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
    
 class CampaignInsightsImpressionDevice(AdsInsights):
     breakdowns = ["impression_device"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsDevicePlatform(AdsInsights):
     breakdowns = ["device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsPublisherPlatform(AdsInsights):
     breakdowns = ["publisher_platform"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsPublisherAndDevicePlatform(AdsInsights):
     breakdowns = ["publisher_platform", "device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
     breakdowns = ["impression_device", "device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
     
 class CampaignInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
     breakdowns = ["publisher_platform", "impression_device"]
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
 
 class CampaignInsightsPlatformAndDevice(AdsInsights):
     breakdowns = ["publisher_platform", "platform_position", "impression_device"]
     # FB Async Job fails for unknown reason if we set other breakdowns
     # my guess: it fails because of very large cardinality of result set (Eugene K)
     action_breakdowns = ["action_type"]
+    schema = "campaign_insights"
     
 # Adaccount insights with breakdowns 
 class AdaccountInsightsActionType(AdsInsights):
     breakdowns = []
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
     
 class AdaccountInsightsAge(AdsInsights):
     breakdowns = ["age"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsGender(AdsInsights):
     breakdowns = ["gender"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsAgeAndGender(AdsInsights):
     breakdowns = ["age", "gender"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsCountry(AdsInsights):
     breakdowns = ["country"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsRegion(AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsDMAActionType(AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
    
 class AdaccountInsightsImpressionDevice(AdsInsights):
     breakdowns = ["impression_device"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsDevicePlatform(AdsInsights):
     breakdowns = ["device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsPublisherPlatform(AdsInsights):
     breakdowns = ["publisher_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsPublisherAndDevicePlatform(AdsInsights):
     breakdowns = ["publisher_platform", "device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
     breakdowns = ["impression_device", "device_platform"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
     
 class AdaccountInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
     breakdowns = ["publisher_platform", "impression_device"]
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"
 
 class AdaccountInsightsPlatformAndDevice(AdsInsights):
     breakdowns = ["publisher_platform", "platform_position", "impression_device"]
     # FB Async Job fails for unknown reason if we set other breakdowns
     # my guess: it fails because of very large cardinality of result set (Eugene K)
     action_breakdowns = ["action_type"]
+    schema = "adacount_insights"

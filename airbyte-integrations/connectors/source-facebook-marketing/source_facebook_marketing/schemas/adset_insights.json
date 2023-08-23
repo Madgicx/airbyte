@@ -21,35 +21,11 @@
       "adset_name": {
         "type": ["null", "string"]
       },
-      "age_targeting": {
-        "type": ["null", "string"]
-      },
-      "attribution_setting": {
-        "type": ["null", "string"]
-      },
-      "auction_bid": {
-        "type": ["null", "number"]
-      },
-      "auction_competitiveness": {
-        "type": ["null", "number"]
-      },
-      "auction_max_competitor_bid": {
-        "type": ["null", "number"]
-      },
-      "buying_type": {
-        "type": ["null", "string"]
-      },
       "campaign_id": {
         "type": ["null", "string"]
       },
       "campaign_name": {
         "type": ["null", "string"]
-      },
-      "canvas_avg_view_percent": {
-        "type": ["null", "number"]
-      },
-      "canvas_avg_view_time": {
-        "type": ["null", "number"]
       },
       "catalog_segment_actions": {
         "type": ["null", "array"]
@@ -76,9 +52,6 @@
         "type": ["null", "array"]
       },
       "conversions": {
-        "type": ["null", "array"]
-      },
-      "converted_product_quantity": {
         "type": ["null", "array"]
       },
       "converted_product_value": {
@@ -156,9 +129,6 @@
       "full_view_reach": {
         "type": ["null", "number"]
       },
-      "gender_targeting": {
-        "type": ["null", "string"]
-      },
       "impressions": {
         "type": ["null", "integer"]
       },
@@ -170,21 +140,6 @@
       },
       "inline_post_engagement": {
         "type": ["null", "integer"]
-      },
-      "instant_experience_clicks_to_open": {
-        "type": ["null", "number"]
-      },
-      "instant_experience_clicks_to_start": {
-        "type": ["null", "number"]
-      },
-      "instant_experience_outbound_clicks": {
-        "type": ["null", "array"]
-      },
-      "labels": {
-        "type": ["null", "string"]
-      },
-      "location": {
-        "type": ["null", "string"]
       },
       "mobile_app_purchase_roas": {
         "type": ["null", "array"]
@@ -203,9 +158,6 @@
       },
       "purchase_roas": {
         "type": ["null", "array"]
-      },
-      "qualifying_question_qualify_answer_rate": {
-        "type": ["null", "number"]
       },
       "quality_ranking": {
         "type": ["null", "string"]
@@ -297,9 +249,6 @@
       },
       "website_purchase_roas": {
         "type": ["null", "array"]
-      },
-      "wish_bid": {
-        "type": ["null", "number"]
       }
     },
     "type": ["null", "object"]
