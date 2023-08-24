@@ -10,6 +10,7 @@ from typing import Any, Iterator, List, Mapping, Optional, Type, Union
 
 import backoff
 import pendulum
+from facebook_business.adobjects.adsinsights import AdsInsights
 from facebook_business.adobjects.ad import Ad
 from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.adreportrun import AdReportRun
@@ -213,7 +214,13 @@ class InsightAsyncJob(AsyncJob):
 
     def split_job(self) -> List["AsyncJob"]:
         """Split existing job in few smaller ones grouped by ParentAsyncJob class."""
-        if isinstance(self._edge_object, AdAccount):
+        if isinstance(self._edge_object, AdAccount) and self._params['level'] == AdsInsights.Level.account:
+            return self._split_by_edge_class(AdAccount)
+        elif isinstance(self._edge_object, Campaign) and self._params['level'] == AdsInsights.Level.campaign:
+            return self._split_by_edge_class(Campaign)
+        elif isinstance(self._edge_object, AdSet) and self._params['level'] == AdsInsights.Level.adset:
+            return self._split_by_edge_class(AdSet)
+        elif isinstance(self._edge_object, AdAccount):
             return self._split_by_edge_class(Campaign)
         elif isinstance(self._edge_object, Campaign):
             return self._split_by_edge_class(AdSet)

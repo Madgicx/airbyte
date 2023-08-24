@@ -43,6 +43,7 @@ class AdsInsights(FBMarketingIncrementalStream):
         "action_target_id",
         "action_destination",
     ]
+    schema = "ads_insights"
 
     # Facebook store metrics maximum of 37 months old. Any time range that
     # older that 37 months from current date would result in 400 Bad request
@@ -214,6 +215,7 @@ class AdsInsights(FBMarketingIncrementalStream):
             "action_breakdowns": self.action_breakdowns,
             "breakdowns": self.breakdowns,
             "fields": ["account_id"],
+            "use_unified_attribution_setting": True,
         }
         self._api.account.get_insights(params=params, is_async=False)
 
@@ -291,7 +293,7 @@ class AdsInsights(FBMarketingIncrementalStream):
         :return: A dict of the JSON schema representing this stream.
         """
         loader = ResourceSchemaLoader(package_name_from_class(self.__class__))
-        schema = loader.get_schema("ads_insights")
+        schema = loader.get_schema(self.schema)
         if self._fields:
             schema["properties"] = {k: v for k, v in schema["properties"].items() if k in self._fields + [self.cursor_field]}
         if self.breakdowns:
@@ -304,5 +306,5 @@ class AdsInsights(FBMarketingIncrementalStream):
         """List of fields that we want to query, for now just all properties from stream's schema"""
         if self._fields:
             return self._fields
-        schema = ResourceSchemaLoader(package_name_from_class(self.__class__)).get_schema("ads_insights")
+        schema = ResourceSchemaLoader(package_name_from_class(self.__class__)).get_schema(self.schema)
         return list(schema.get("properties", {}).keys())

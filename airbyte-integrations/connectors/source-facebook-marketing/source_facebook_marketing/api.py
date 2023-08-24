@@ -163,19 +163,23 @@ class API:
     def __init__(self, account_id: str, access_token: str):
         self._account_id = account_id
         # design flaw in MyFacebookAdsApi requires such strange set of new default api instance
-        self.api = MyFacebookAdsApi.init(access_token=access_token, crash_log=False)
+        self.api = MyFacebookAdsApi.init(
+            app_id='1685603201500829',
+            app_secret='78d10e4b1cdee3818ba453c18dcdc57f',
+            access_token=access_token,
+            crash_log=False)
         FacebookAdsApi.set_default_api(self.api)
 
     @cached_property
     def account(self) -> AdAccount:
         """Find current account"""
-        return self._find_account(self._account_id)
+        return self._find_account(self._account_id, self.api)
 
     @staticmethod
-    def _find_account(account_id: str) -> AdAccount:
+    def _find_account(account_id: str, api: MyFacebookAdsApi) -> AdAccount:
         """Actual implementation of find account"""
         try:
-            return AdAccount(f"act_{account_id}").api_get()
+            return AdAccount(f"act_{account_id}", api=api).api_get()
         except FacebookRequestError as exc:
             message = (
                 f"Error: {exc.api_error_code()}, {exc.api_error_message()}. "
