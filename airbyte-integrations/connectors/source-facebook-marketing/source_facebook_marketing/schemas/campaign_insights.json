@@ -97,18 +97,18 @@
       "type": ["null", "number"]
     },
     "created_time": {
-      "format": "date",
+      
       "type": ["null", "string"]
     },
     "ctr": {
       "type": ["null", "number"]
     },
     "date_start": {
-      "format": "date",
+      
       "type": ["null", "string"]
     },
     "date_stop": {
-      "format": "date",
+      
       "type": ["null", "string"]
     },
     "engagement_rate_ranking": {
@@ -190,7 +190,7 @@
       "type": ["null", "array"]
     },
     "updated_time": {
-      "format": "date",
+      
       "type": ["null", "string"]
     },
     "video_15_sec_watched_actions": {
