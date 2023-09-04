@@ -457,7 +457,7 @@ class OrdersGraphQl(IncrementalShopifyStream):
     filter_field = "updatedAt"
     data_field = "graphql"
     http_method = "POST"
-    limit = 10 # Rate limit issue
+    limit = 5 # Rate limit issue
     
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
