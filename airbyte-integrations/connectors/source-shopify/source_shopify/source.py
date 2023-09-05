@@ -452,7 +452,7 @@ class ProductsGraphQl(IncrementalShopifyStream):
                 yield {}
 
            
-class OrdersGraphQl(IncrementalShopifyStream):
+class OrderGraphQl(IncrementalShopifyStream):
     cursor_field = "updatedAt"
     filter_field = "updatedAt"
     data_field = "graphql"
@@ -893,7 +893,7 @@ class SourceShopify(AbstractSource):
             OrderRefunds(config),
             OrderRisks(config),
             Orders(config),
-            OrdersGraphQl(config),
+            OrderGraphQl(config),
             Pages(config),
             PriceRules(config),
             ProductImages(config),
