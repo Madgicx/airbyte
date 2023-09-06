@@ -23795,6 +23795,7 @@ class Refund(sgqlc.types.Type, LegacyInteroperability, Node):
         "refund_line_items",
         "staff_member",
         "total_refunded_set",
+        "total_refunded",
         "transactions",
         "updated_at",
     )
@@ -23817,6 +23818,7 @@ class Refund(sgqlc.types.Type, LegacyInteroperability, Node):
     )
     staff_member = sgqlc.types.Field("StaffMember", graphql_name="staffMember")
     total_refunded_set = sgqlc.types.Field(sgqlc.types.non_null(MoneyBag), graphql_name="totalRefundedSet")
+    total_refunded = sgqlc.types.Field(sgqlc.types.non_null(MoneyV2), graphql_name="totalRefunded")
     transactions = sgqlc.types.Field(
         sgqlc.types.non_null(OrderTransactionConnection),
         graphql_name="transactions",
