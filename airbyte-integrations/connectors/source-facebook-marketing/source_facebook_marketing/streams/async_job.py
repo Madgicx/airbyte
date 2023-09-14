@@ -369,4 +369,4 @@ class InsightAsyncJob(AsyncJob):
         """String representation of the job wrapper."""
         job_id = self._job["report_run_id"] if self._job else "<None>"
         breakdowns = self._params["breakdowns"]
-        return f"InsightAsyncJob(id={job_id}, {self._edge_object}, time_range={self._interval}, breakdowns={breakdowns})"
+        return f"InsightAsyncJob(id={job_id}, {self._edge_object}, time_range={self._interval}, breakdowns={breakdowns}, level={self._params['level']})"

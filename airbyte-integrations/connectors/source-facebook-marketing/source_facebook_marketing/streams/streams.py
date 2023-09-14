@@ -4,7 +4,7 @@
 
 import base64
 import logging
-from typing import Any, Iterable, List, Mapping, Optional, Set
+from typing import Any, Iterable, List, Mapping, Optional, Set, Union
 
 import pendulum
 import requests
@@ -300,72 +300,93 @@ class AdsInsightsPlatformAndDevice(AdsInsights):
     action_breakdowns = ["action_type"]
 
 # Adset insights with Breakdowns
-class AdsetInsightsActionType(AdsInsights):
+
+class MixingAdsetPrimaryKey:
+    
+    @property
+    def primary_key(self) -> Optional[Union[str, List[str], List[List[str]]]]:
+        """Build complex PK based on slices and breakdowns"""
+        return ["date_start", "account_id", "adset_id"] + self.breakdowns
+
+class AdsetInsightsActionType(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = []
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
     
-class AdsetInsightsAge(AdsInsights):
+    
+class AdsetInsightsAge(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["age"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsGender(AdsInsights):
+
+class AdsetInsightsGender(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["gender"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsAgeAndGender(AdsInsights):
+
+class AdsetInsightsAgeAndGender(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["age", "gender"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsCountry(AdsInsights):
+
+class AdsetInsightsCountry(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["country"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsRegion(AdsInsights):
+
+class AdsetInsightsRegion(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsDMAActionType(AdsInsights):
+
+class AdsetInsightsDMAActionType(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
+
    
-class AdsetInsightsImpressionDevice(AdsInsights):
+class AdsetInsightsImpressionDevice(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["impression_device"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsDevicePlatform(AdsInsights):
+
+class AdsetInsightsDevicePlatform(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["device_platform"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsPublisherPlatform(AdsInsights):
+
+class AdsetInsightsPublisherPlatform(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsPublisherAndDevicePlatform(AdsInsights):
+
+class AdsetInsightsPublisherAndDevicePlatform(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "device_platform"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
+
+class AdsetInsightsImpressionDeviceAndDevicePlatform(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["impression_device", "device_platform"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
-    
-class AdsetInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
+
+  
+class AdsetInsightsPublisherPlatformAndImpressionDevice(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "impression_device"]
     action_breakdowns = ["action_type"]
     schema = "adset_insights"
 
-class AdsetInsightsPlatformAndDevice(AdsInsights):
+
+class AdsetInsightsPlatformAndDevice(MixingAdsetPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "platform_position", "impression_device"]
     # FB Async Job fails for unknown reason if we set other breakdowns
     # my guess: it fails because of very large cardinality of result set (Eugene K)
@@ -373,145 +394,190 @@ class AdsetInsightsPlatformAndDevice(AdsInsights):
     schema = "adset_insights" 
 
 # Campaign Insights with Breakdowns 
-class CampaignInsightsActionType(AdsInsights):
+
+class MixingCampaignPrimaryKey:
+    
+    @property
+    def primary_key(self) -> Optional[Union[str, List[str], List[List[str]]]]:
+        """Build complex PK based on slices and breakdowns"""
+        return ["date_start", "account_id", "campaign_id"] + self.breakdowns
+
+
+class CampaignInsightsActionType(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = []
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
-    
-class CampaignInsightsAge(AdsInsights):
+
+   
+class CampaignInsightsAge(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["age"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsGender(AdsInsights):
+
+class CampaignInsightsGender(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["gender"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsAgeAndGender(AdsInsights):
+
+class CampaignInsightsAgeAndGender(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["age", "gender"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsCountry(AdsInsights):
+
+class CampaignInsightsCountry(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["country"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsRegion(AdsInsights):
+
+class CampaignInsightsRegion(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsDMAActionType(AdsInsights):
+
+class CampaignInsightsDMAActionType(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
+
    
-class CampaignInsightsImpressionDevice(AdsInsights):
+class CampaignInsightsImpressionDevice(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["impression_device"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsDevicePlatform(AdsInsights):
+
+class CampaignInsightsDevicePlatform(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["device_platform"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsPublisherPlatform(AdsInsights):
+
+class CampaignInsightsPublisherPlatform(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsPublisherAndDevicePlatform(AdsInsights):
+
+class CampaignInsightsPublisherAndDevicePlatform(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "device_platform"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
+
+class CampaignInsightsImpressionDeviceAndDevicePlatform(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["impression_device", "device_platform"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
+
     
-class CampaignInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
+class CampaignInsightsPublisherPlatformAndImpressionDevice(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "impression_device"]
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
 
-class CampaignInsightsPlatformAndDevice(AdsInsights):
+
+class CampaignInsightsPlatformAndDevice(MixingCampaignPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "platform_position", "impression_device"]
     # FB Async Job fails for unknown reason if we set other breakdowns
     # my guess: it fails because of very large cardinality of result set (Eugene K)
     action_breakdowns = ["action_type"]
     schema = "campaign_insights"
+
     
 # Adaccount insights with breakdowns 
-class AdaccountInsightsActionType(AdsInsights):
+
+class MixingAdAccountPrimaryKey:
+    
+    @property
+    def primary_key(self) -> Optional[Union[str, List[str], List[List[str]]]]:
+        """Build complex PK based on slices and breakdowns"""
+        return ["date_start", "account_id"] + self.breakdowns
+
+
+class AdaccountInsightsActionType(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = []
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
+ 
     
-class AdaccountInsightsAge(AdsInsights):
+class AdaccountInsightsAge(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["age"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsGender(AdsInsights):
+
+class AdaccountInsightsGender(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["gender"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsAgeAndGender(AdsInsights):
+
+class AdaccountInsightsAgeAndGender(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["age", "gender"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsCountry(AdsInsights):
+
+class AdaccountInsightsCountry(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["country"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsRegion(AdsInsights):
+
+class AdaccountInsightsRegion(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["region"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsDMAActionType(AdsInsights):
+
+class AdaccountInsightsDMAActionType(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["dma"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
-   
-class AdaccountInsightsImpressionDevice(AdsInsights):
+
+
+class AdaccountInsightsImpressionDevice(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["impression_device"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsDevicePlatform(AdsInsights):
+
+class AdaccountInsightsDevicePlatform(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["device_platform"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsPublisherPlatform(AdsInsights):
+
+class AdaccountInsightsPublisherPlatform(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsPublisherAndDevicePlatform(AdsInsights):
+
+class AdaccountInsightsPublisherAndDevicePlatform(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "device_platform"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsImpressionDeviceAndDevicePlatform(AdsInsights):
+
+class AdaccountInsightsImpressionDeviceAndDevicePlatform(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["impression_device", "device_platform"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
+ 
     
-class AdaccountInsightsPublisherPlatformAndImpressionDevice(AdsInsights):
+class AdaccountInsightsPublisherPlatformAndImpressionDevice(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "impression_device"]
     action_breakdowns = ["action_type"]
     schema = "adacount_insights"
 
-class AdaccountInsightsPlatformAndDevice(AdsInsights):
+
+class AdaccountInsightsPlatformAndDevice(MixingAdAccountPrimaryKey, AdsInsights):
     breakdowns = ["publisher_platform", "platform_position", "impression_device"]
     # FB Async Job fails for unknown reason if we set other breakdowns
     # my guess: it fails because of very large cardinality of result set (Eugene K)
