@@ -9,7 +9,7 @@ services:
   # hook in case we need to add init behavior
   # every root service (no depends_on) should depend on init
   init:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/init:${VERSION}
+    image: airbyte/init:${VERSION}
     logging: *default-logging
     container_name: init
     command: /bin/sh -c "./scripts/create_mount_directories.sh /local_parent ${HACK_LOCAL_ROOT_PARENT} ${LOCAL_ROOT}"
@@ -19,7 +19,7 @@ services:
     volumes:
       - ${HACK_LOCAL_ROOT_PARENT}:/local_parent
   bootloader:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/bootloader:${VERSION}
+    image: airbyte/bootloader:${VERSION}
     logging: *default-logging
     container_name: airbyte-bootloader
     environment:
@@ -35,7 +35,7 @@ services:
       init:
         condition: service_completed_successfully
   db:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/db:${VERSION}
+    image: airbyte/db:${VERSION}
     logging: *default-logging
     container_name: airbyte-db
     restart: unless-stopped
@@ -53,7 +53,7 @@ services:
     networks:
       - airbyte_internal
   worker:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/worker:${VERSION}
+    image: airbyte/worker:${VERSION}
     logging: *default-logging
     container_name: airbyte-worker
     restart: unless-stopped
@@ -126,7 +126,7 @@ services:
       bootloader:
         condition: service_completed_successfully
   server:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/server:${VERSION}
+    image: airbyte/server:${VERSION}
     logging: *default-logging
     container_name: airbyte-server
     restart: unless-stopped
@@ -177,7 +177,7 @@ services:
       bootloader:
         condition: service_completed_successfully
   webapp:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/webapp:${VERSION}
+    image: airbyte/webapp:${VERSION}
     logging: *default-logging
     container_name: airbyte-webapp
     restart: unless-stopped
@@ -193,7 +193,7 @@ services:
       bootloader:
         condition: service_completed_successfully
   airbyte-temporal:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/temporal:${VERSION}
+    image: airbyte/temporal:${VERSION}
     logging: *default-logging
     container_name: airbyte-temporal
     restart: unless-stopped
@@ -210,7 +210,7 @@ services:
     networks:
       - airbyte_internal
   airbyte-cron:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/cron:${VERSION}
+    image: airbyte/cron:${VERSION}
     logging: *default-logging
     container_name: airbyte-cron
     restart: unless-stopped
@@ -237,7 +237,7 @@ services:
       bootloader:
         condition: service_completed_successfully
   airbyte-connector-builder-server:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/connector-atelier-server:${VERSION}
+    image: airbyte/connector-atelier-server:${VERSION}
     logging: *default-logging
     container_name: airbyte-connector-builder-server
     restart: unless-stopped
@@ -253,7 +253,7 @@ services:
       bootloader:
         condition: service_completed_successfully
   airbyte-proxy:
-    image: 613378266703.dkr.ecr.us-west-2.amazonaws.com/airbyte/proxy:${VERSION}
+    image: airbyte/proxy:${VERSION}
     container_name: airbyte-proxy
     restart: unless-stopped
     ports:
