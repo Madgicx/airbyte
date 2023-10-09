@@ -140,6 +140,66 @@
         },
         "frequency": {
           "type": ["null", "string"]
+        },
+        "video_play_actions": {
+          "type": ["null", "string"]
+        },
+        "onsite_shopping": {
+          "type": ["null", "string"]
+        },
+        "total_sales_lead_value": {
+          "type": ["null", "string"]
+        },
+        "total_sales_lead": {
+          "type": ["null", "string"]
+        },
+        "sales_lead": {
+          "type": ["null", "string"]
+        },
+        "download_start": {
+          "type": ["null", "string"]
+        },
+        "form": {
+          "type": ["null", "string"]
+        },
+        "online_consult": {
+          "type": ["null", "string"]
+        },
+        "button_click": {
+          "type": ["null", "string"]
+        },
+        "page_browse_view": {
+          "type": ["null", "string"]
+        },
+        "real_time_app_install": {
+          "type": ["null", "string"]
+        },
+        "purchase": {
+          "type": ["null", "string"]
+        },
+        "total_landing_page_view": {
+          "type": ["null", "string"]
+        },
+        "complete_payment": {
+          "type": ["null", "string"]
+        },
+        "registration": {
+          "type": ["null", "string"]
+        },
+        "total_purchase": {
+          "type": ["null", "string"]
+        },
+        "total_purchase_value": {
+          "type": ["null", "string"]
+        },
+        "total_onsite_shopping_value": {
+          "type": ["null", "string"]
+        },
+        "total_complete_payment_rate": {
+          "type": ["null", "string"]
+        },
+        "app_install": {
+          "type": ["null", "string"]
         }
       }
     },

@@ -51,6 +51,24 @@ NOT_AUDIENCE_METRICS = [
     "real_time_app_install",
     "real_time_app_install_cost",
     "app_install",
+    "onsite_shopping",
+    "total_sales_lead_value",
+    "total_sales_lead",
+    "sales_lead",
+    "download_start",
+    "form",
+    "online_consult",
+    "button_click",
+    "page_browse_view",
+    "real_time_app_install",
+    "purchase",
+    "total_landing_page_view",
+    "complete_payment",
+    "registration",
+    "total_purchase",
+    "total_purchase_value",
+    "total_onsite_shopping_value",
+    "total_complete_payment_rate",
 ]
 
 T = TypeVar("T")
@@ -612,6 +630,27 @@ class BasicReports(IncrementalTiktokStream, ABC):
             "real_time_app_install",
             "real_time_app_install_cost",
             "app_install",
+            "conversion",
+            "onsite_shopping",
+            "total_sales_lead_value",
+            "total_sales_lead",
+            "sales_lead",
+            "download_start",
+            "form",
+            "online_consult",
+            "button_click",
+            "page_browse_view",
+            "real_time_app_install",
+            "purchase",
+            "total_landing_page_view",
+            "complete_payment",
+            "registration",
+            "total_purchase",
+            "total_purchase_value",
+            "total_onsite_shopping_value",
+            "total_complete_payment_rate",
+            "real_time_conversion",
+            "conversion_rate"
         ]
 
         if self.report_level == ReportLevel.ADVERTISER and self.report_granularity == ReportGranularity.DAY:
@@ -637,10 +676,10 @@ class BasicReports(IncrementalTiktokStream, ABC):
 
             result.extend(
                 [
-                    "conversion",
+                    #"conversion",
                     "cost_per_conversion",
-                    "conversion_rate",
-                    "real_time_conversion",
+                    #"conversion_rate",
+                    #"real_time_conversion",
                     "real_time_cost_per_conversion",
                     "real_time_conversion_rate",
                     "result",
