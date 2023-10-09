@@ -24,13 +24,13 @@ class InsightAsyncJobManager:
     """
 
     # When current insights throttle hit this value no new jobs added.
-    THROTTLE_LIMIT = 70
+    THROTTLE_LIMIT = 80
     MAX_NUMBER_OF_ATTEMPTS = 20
     # Time to wait before checking job status update again.
-    JOB_STATUS_UPDATE_SLEEP_SECONDS = 30
+    JOB_STATUS_UPDATE_SLEEP_SECONDS = 10
     # Maximum of concurrent jobs that could be scheduled. Since throttling
     # limit is not reliable indicator of async workload capability we still have to use this parameter.
-    MAX_JOBS_IN_QUEUE = 100
+    MAX_JOBS_IN_QUEUE = 1098 # ~ 3 years 
 
     def __init__(self, api: "API", jobs: Iterator[AsyncJob]):
         """Init
@@ -138,7 +138,7 @@ class InsightAsyncJobManager:
         facebook throttle limit is not reliable metric to estimate async workload.
         """
         throttle = self._api.api.ads_insights_throttle
-
+        logger.info(f'Current throttle {throttle}')
         return min(throttle.per_account, throttle.per_application)
 
     def _update_api_throttle_limit(self):
