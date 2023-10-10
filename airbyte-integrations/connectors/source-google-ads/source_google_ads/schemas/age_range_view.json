@@ -123,6 +123,12 @@
         "number"
       ]
     },
+    "metrics.clicks": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
     "metrics.value_per_conversion": {
       "type": [
         "null",
