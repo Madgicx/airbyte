@@ -147,12 +147,6 @@
         "string"
       ]
     },
-    "segments.month_of_year": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
     "segments.quarter": {
       "type": [
         "null",
@@ -171,19 +165,7 @@
         "integer"
       ]
     },
-    "metrics.absolute_top_impression_percentage": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "metrics.all_conversions": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.all_conversions_from_interactions_rate": {
       "type": [
         "null",
         "number"
@@ -195,43 +177,7 @@
         "number"
       ]
     },
-    "metrics.average_cost": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.average_cpc": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.average_cpm": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.average_cpv": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.clicks": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
     "metrics.conversions": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.conversions_from_interactions_rate": {
       "type": [
         "null",
         "number"
@@ -243,61 +189,7 @@
         "number"
       ]
     },
-    "metrics.cost_micros": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "metrics.cost_per_all_conversions": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.cost_per_conversion": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
     "metrics.cross_device_conversions": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.ctr": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.impressions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "metrics.interaction_event_types": {
-      "type": [
-        "null",
-        "array"
-      ]
-    },
-    "metrics.interaction_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.interactions": {
-      "type": [
-        "null",
-        "integer"
-      ]
-    },
-    "metrics.top_impression_percentage": {
       "type": [
         "null",
         "number"
@@ -313,18 +205,6 @@
       "type": [
         "null",
         "number"
-      ]
-    },
-    "metrics.video_view_rate": {
-      "type": [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.video_views": {
-      "type": [
-        "null",
-        "integer"
       ]
     },
     "metrics.view_through_conversions": {
