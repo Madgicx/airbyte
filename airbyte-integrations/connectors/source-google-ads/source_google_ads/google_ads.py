@@ -71,11 +71,13 @@ class GoogleAds:
         max_tries=5,
     )
     def send_request(self, query: str, customer_id: str) -> Iterator[SearchGoogleAdsResponse]:
+        logger.info(f">>>>>>>>>>>>> GA QUERY: {str(query)}")
         client = self.client
         search_request = client.get_type("SearchGoogleAdsRequest")
         search_request.query = query
         search_request.page_size = self.DEFAULT_PAGE_SIZE
         search_request.customer_id = customer_id
+
         return [self.ga_service.search(search_request)]
 
     def get_fields_metadata(self, fields: List[str]) -> Mapping[str, Any]:
