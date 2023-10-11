@@ -180,8 +180,25 @@
       "type": [
         "null",
         "string"
-      ],
-      "format": "date"
+      ]
+    },
+    "segments.week": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "segments.month": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "segments.year": {
+      "type": [
+        "null",
+        "string"
+      ]
     },
     "metrics.absolute_top_impression_percentage": {
       "type": [

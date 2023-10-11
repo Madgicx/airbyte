@@ -2,6 +2,12 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
+    "ad_group_criterion.gender.type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "gender_view.resource_name": {
       "type": [
         "null",

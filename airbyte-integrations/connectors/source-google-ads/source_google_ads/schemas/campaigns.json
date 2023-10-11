@@ -572,49 +572,7 @@
         "number"
       ]
     },
-    "metrics.all_conversions_from_click_to_call" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.all_conversions_from_directions" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
     "metrics.all_conversions_from_interactions_rate" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.all_conversions_from_menu" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.all_conversions_from_order" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.all_conversions_from_other_engagement" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.all_conversions_from_store_visit" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.all_conversions_from_store_website" : {
       "type" : [
         "null",
         "number"
@@ -663,18 +621,6 @@
       ]
     },
     "metrics.average_page_views" : {
-      "type" : [
-        "null",
-        "number"
-      ]
-    },
-    "metrics.average_target_cpa_micros" : {
-      "type" : [
-        "null",
-        "integer"
-      ]
-    },
-    "metrics.average_target_roas" : {
       "type" : [
         "null",
         "number"
@@ -1028,12 +974,30 @@
         "integer"
       ]
     },
-    "segments.date" : {
-      "type" : [
+
+    "segments.date": {
+      "type": [
         "null",
         "string"
-      ],
-      "format" : "date"
+      ]
+    },
+    "segments.week": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "segments.month": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "segments.year": {
+      "type": [
+        "null",
+        "string"
+      ]
     }
   }
 }

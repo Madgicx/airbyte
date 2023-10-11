@@ -8,6 +8,12 @@
         "string"
       ]
     },
+    "ad_group_criterion.age_range.type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "segments.ad_network_type": {
       "type": [
         "null",

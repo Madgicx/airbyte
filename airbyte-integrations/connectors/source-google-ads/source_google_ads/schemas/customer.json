@@ -467,6 +467,24 @@
         "string"
       ]
     },
+    "segments.week": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "segments.month": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "segments.year": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "metrics.value_per_all_conversions_by_conversion_date": {
       "type": [
         "null",
