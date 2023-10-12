@@ -14,6 +14,30 @@
         "string"
       ]
     },
+    "campaign.id" : {
+      "type" : [
+        "null",
+        "integer"
+      ]
+    },
+    "campaign.name" : {
+      "type" : [
+        "null",
+        "string"
+      ]
+    },
+    "ad_group.id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ad_group.name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
     "segments.ad_network_type": {
       "type": [
         "null",

@@ -5,7 +5,7 @@
     "geographic_view.country_criterion_id": {
       "type": [
         "null",
-        "integer"
+        "string"
       ]
     },
     "geographic_view.location_type": {
@@ -21,6 +21,30 @@
       ]
     },
     "geographic_view.resource_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "campaign.id" : {
+      "type" : [
+        "null",
+        "integer"
+      ]
+    },
+    "campaign.name" : {
+      "type" : [
+        "null",
+        "string"
+      ]
+    },
+    "ad_group.id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "ad_group.name": {
       "type": [
         "null",
         "string"
@@ -46,66 +70,6 @@
       ]
     },
     "segments.device": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_canton": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_city": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_county": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_district": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_metro": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_most_specific_location": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_postal_code": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_province": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_region": {
-      "type": [
-        "null",
-        "string"
-      ]
-    },
-    "segments.geo_target_state": {
       "type": [
         "null",
         "string"
