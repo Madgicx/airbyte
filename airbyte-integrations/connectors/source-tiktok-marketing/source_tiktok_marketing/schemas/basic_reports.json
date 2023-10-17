@@ -12,6 +12,9 @@
       "format": "date-time",
       "airbyte_type": "timestamp_without_timezone"
     },
+    "country_code": {
+      "type": ["null", "string"]
+    },
     "campaign_id": {
       "type": ["null", "integer"]
     },
@@ -225,6 +228,9 @@
         },
         "advertiser_id": {
           "type": ["null", "integer"]
+        },
+        "country_code": {
+          "type": ["null", "string"]
         }
       }
     }

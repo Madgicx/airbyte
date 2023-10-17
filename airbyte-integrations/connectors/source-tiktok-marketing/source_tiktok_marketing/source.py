@@ -150,6 +150,7 @@ class SourceTiktokMarketing(AbstractSource):
                     AdsReports(**report_args),
                     AdGroupsReports(**report_args),
                     CampaignsReports(**report_args),
+                    CampaignsAudienceReportsByCountry(**report_args),
                 ]
             )
 
@@ -160,8 +161,7 @@ class SourceTiktokMarketing(AbstractSource):
                 streams.extend(
                     [
                         AdsAudienceReports(**report_args),
-                        AdGroupAudienceReports(**report_args),
-                        CampaignsAudienceReportsByCountry(**report_args),
+                        AdGroupAudienceReports(**report_args)
                     ]
                 )
 
@@ -178,25 +178,28 @@ class SourceTiktokMarketing(AbstractSource):
             # for version >= 0.1.13:
 
             # 2. Basic report streams:
-            reports = [AdsReports, AdGroupsReports, CampaignsReports]
+            reports = [
+                AdsReports,
+                AdGroupsReports,
+                CampaignsReports,
+                AdsAudienceReportsByCountry,
+                AdGroupAudienceReportsByCountry,
+                CampaignsAudienceReportsByCountry
+            ]
             audience_reports = [
                 AdsAudienceReports,
-                AdsAudienceReportsByCountry,
                 AdsAudienceReportsByPlatform,
                 AdGroupAudienceReports,
-                AdGroupAudienceReportsByCountry,
                 AdGroupAudienceReportsByPlatform,
                 CampaignsAudienceReports,
-                CampaignsAudienceReportsByCountry,
                 CampaignsAudienceReportsByPlatform,
             ]
             if is_production:
                 # 2.1 streams work only in prod env
-                reports.append(AdvertisersReports)
+                reports.extend([AdvertisersReports, AdvertisersAudienceReportsByCountry])
                 audience_reports.extend(
                     [
                         AdvertisersAudienceReports,
-                        AdvertisersAudienceReportsByCountry,
                         AdvertisersAudienceReportsByPlatform,
                     ]
                 )
