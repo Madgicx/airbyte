@@ -51,7 +51,73 @@ NOT_AUDIENCE_METRICS = [
     "real_time_app_install",
     "real_time_app_install_cost",
     "app_install",
+    "onsite_shopping",
+    "total_sales_lead_value",
+    "total_sales_lead",
+    "sales_lead",
+    "download_start",
+    "form",
+    "online_consult",
+    "button_click",
+    "page_browse_view",
+    "real_time_app_install",
+    "purchase",
+    "total_landing_page_view",
+    "complete_payment",
+    "registration",
+    "total_purchase",
+    "total_purchase_value",
+    "total_onsite_shopping_value",
+    "total_complete_payment_rate",
 ]
+
+COUNTRY_SUPPORTED_METRICS = [
+    "clicks",
+    "spend",
+    "conversion",
+    "cost_per_conversion",
+    "cpc",
+    "cpm",
+    "ctr",
+    "cvr",
+    "reach",
+    "frequency",
+    "real_time_cost_per_conversion",
+    "real_time_conversion_rate",
+    "impressions",
+    "real_time_conversion",
+    "app_install",
+    "video_play_actions",
+    "registration",
+    "cost_per_registration",
+    "registration_rate",
+    "complete_payment",
+    "cost_per_complete_payment",
+    "complete_payment_rate",
+    "total_landing_page_view",
+    "cost_per_landing_page_view",
+    "landing_page_view_rate",
+    "purchase",
+    "cost_per_purchase",
+    "purchase_rate",
+    "real_time_app_install",
+    "real_time_app_install_cost",
+    "page_browse_view_rate",
+    "cost_per_page_browse_view",
+    "page_browse_view_rate",
+    "button_click",
+    "cost_per_button_click",
+    "button_click_rate",
+    "online_consult_rate",
+    "cost_per_online_consult",
+    "online_consult_rate",
+    "form",
+    "cost_per_form",
+    "form_rate",
+    "download_start_rate",
+    "cost_per_download_start",
+    "download_start_rate",
+    ]
 
 T = TypeVar("T")
 
@@ -612,6 +678,27 @@ class BasicReports(IncrementalTiktokStream, ABC):
             "real_time_app_install",
             "real_time_app_install_cost",
             "app_install",
+            "conversion",
+            "onsite_shopping",
+            "total_sales_lead_value",
+            "total_sales_lead",
+            "sales_lead",
+            "download_start",
+            "form",
+            "online_consult",
+            "button_click",
+            "page_browse_view",
+            "real_time_app_install",
+            "purchase",
+            "total_landing_page_view",
+            "complete_payment",
+            "registration",
+            "total_purchase",
+            "total_purchase_value",
+            "total_onsite_shopping_value",
+            "total_complete_payment_rate",
+            "real_time_conversion",
+            "conversion_rate"
         ]
 
         if self.report_level == ReportLevel.ADVERTISER and self.report_granularity == ReportGranularity.DAY:
@@ -637,10 +724,10 @@ class BasicReports(IncrementalTiktokStream, ABC):
 
             result.extend(
                 [
-                    "conversion",
+                    #"conversion",
                     "cost_per_conversion",
-                    "conversion_rate",
-                    "real_time_conversion",
+                    #"conversion_rate",
+                    #"real_time_conversion",
                     "real_time_cost_per_conversion",
                     "real_time_conversion_rate",
                     "result",
@@ -772,6 +859,30 @@ class AdGroupAudienceReports(AudienceReport):
     report_level = ReportLevel.ADGROUP
 
 
+class CountryReport(BasicReports, ABC):
+    """Docs: https://ads.tiktok.com/marketing_api/docs?id=1738864928947201"""
+
+    country_dimensions: List = ["country_code"]
+    schema_name = "basic_reports"
+
+    def _get_metrics(self):
+        result = super()._get_metrics()
+        result = [e for e in result if e in COUNTRY_SUPPORTED_METRICS]
+        return result
+
+    def _get_reporting_dimensions(self):
+        result = super()._get_reporting_dimensions()
+        result += self.country_dimensions
+        return result
+
+    def request_params(
+        self, stream_state: Mapping[str, Any] = None, stream_slice: Mapping[str, Any] = None, **kwargs
+    ) -> MutableMapping[str, Any]:
+        params = super().request_params(stream_state=stream_state, stream_slice=stream_slice, **kwargs)
+        params["report_type"] = "BASIC"
+        return params
+
+
 class AdsAudienceReports(AudienceReport):
 
     ref_pk = "ad_id"
@@ -784,28 +895,32 @@ class AdvertisersAudienceReports(AudienceReport):
     report_level = ReportLevel.ADVERTISER
 
 
-class CampaignsAudienceReportsByCountry(CampaignsAudienceReports):
+class CampaignsAudienceReportsByCountry(CountryReport):
     """Custom reports for campaigns by country"""
 
-    audience_dimensions = ["country_code"]
+    ref_pk = "campaign_id"
+    report_level = ReportLevel.CAMPAIGN
 
 
-class AdGroupAudienceReportsByCountry(AdGroupAudienceReports):
+class AdGroupAudienceReportsByCountry(CountryReport):
     """Custom reports for adgroups by country"""
 
-    audience_dimensions = ["country_code"]
+    ref_pk = "adgroup_id"
+    report_level = ReportLevel.ADGROUP
 
 
-class AdsAudienceReportsByCountry(AdsAudienceReports):
+class AdsAudienceReportsByCountry(CountryReport):
     """Custom reports for ads by country"""
 
-    audience_dimensions = ["country_code"]
+    ref_pk = "ad_id"
+    report_level = ReportLevel.AD
 
 
-class AdvertisersAudienceReportsByCountry(AdvertisersAudienceReports):
+class AdvertisersAudienceReportsByCountry(CountryReport):
     """Custom reports for advertisers by country"""
 
-    audience_dimensions = ["country_code"]
+    ref_pk = "advertiser_id"
+    report_level = ReportLevel.ADVERTISER
 
 
 class CampaignsAudienceReportsByPlatform(CampaignsAudienceReports):
