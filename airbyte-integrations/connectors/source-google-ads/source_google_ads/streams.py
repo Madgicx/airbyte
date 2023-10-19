@@ -11,12 +11,12 @@ from airbyte_cdk.models import SyncMode
 from airbyte_cdk.sources.streams import IncrementalMixin, Stream
 from airbyte_cdk.sources.utils.transform import TransformConfig, TypeTransformer
 from google.ads.googleads.errors import GoogleAdsException
-from google.ads.googleads.v11.errors.types.authorization_error import AuthorizationErrorEnum
-from google.ads.googleads.v11.errors.types.request_error import RequestErrorEnum
-from google.ads.googleads.v11.services.services.google_ads_service.pagers import SearchPager
+from google.ads.googleads.v13.errors.types.authorization_error import AuthorizationErrorEnum
+from google.ads.googleads.v13.errors.types.request_error import RequestErrorEnum
+from google.ads.googleads.v13.services.services.google_ads_service.pagers import SearchPager
 
 from .google_ads import GoogleAds
-from .models import Customer
+from .models import CustomerDTO
 
 
 class cyclic_sieve:
@@ -107,7 +107,7 @@ def chunk_date_range(
 class GoogleAdsStream(Stream, ABC):
     CATCH_API_ERRORS = True
 
-    def __init__(self, api: GoogleAds, customers: List[Customer]):
+    def __init__(self, api: GoogleAds, customers: List[CustomerDTO]):
         self.google_ads_client = api
         self.customers = customers
         self.base_sieve_logger = cyclic_sieve(self.logger, 10)
@@ -392,6 +392,30 @@ class GeographicReport(IncrementalGoogleAdsStream):
 class KeywordReport(IncrementalGoogleAdsStream):
     """
     UserLocationReport stream: https://developers.google.com/google-ads/api/fields/v11/keyword_view
+    """
+
+
+class Customer(IncrementalGoogleAdsStream):
+    """
+    UserLocationReport stream: https://developers.google.com/google-ads/api/fields/v14/customer
+    """
+
+
+class AgeRangeView(IncrementalGoogleAdsStream):
+    """
+    UserLocationReport stream: https://developers.google.com/google-ads/api/fields/v14/age_range_view
+    """
+
+
+class GenderView(IncrementalGoogleAdsStream):
+    """
+    UserLocationReport stream: https://developers.google.com/google-ads/api/fields/v14/gender_view
+    """
+
+
+class GeographicView(IncrementalGoogleAdsStream):
+    """
+    UserLocationReport stream: https://developers.google.com/google-ads/api/fields/v14/geographic_view
     """
 
 

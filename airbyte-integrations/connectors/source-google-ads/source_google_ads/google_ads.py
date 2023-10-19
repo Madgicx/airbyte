@@ -5,7 +5,7 @@
 
 import logging
 from enum import Enum
-from typing import Any, Iterator, List, Mapping, MutableMapping
+from typing import Any, Iterator, List, Mapping, MutableMapping, Union
 
 import backoff
 import pendulum
@@ -35,6 +35,10 @@ REPORT_MAPPING = {
     "click_view": "click_view",
     "geographic_report": "geographic_view",
     "keyword_report": "keyword_view",
+    "customer": "customer",
+    "age_range_view": "age_range_view",
+    "gender_view": "gender_view",
+    "geographic_view": "geographic_view",
 }
 API_VERSION = "v13"
 logger = logging.getLogger("airbyte")
@@ -66,13 +70,17 @@ class GoogleAds:
         ),
         max_tries=5,
     )
-    def send_request(self, query: str, customer_id: str) -> Iterator[SearchGoogleAdsResponse]:
+    def send_request(self, query: str, customer_id: str) -> Union[Iterator[SearchGoogleAdsResponse], List[SearchGoogleAdsResponse]]:
+        logger.info(f">>>>>>>>>>>>> GA QUERY: {str(query)}")
         client = self.client
         search_request = client.get_type("SearchGoogleAdsRequest")
         search_request.query = query
         search_request.page_size = self.DEFAULT_PAGE_SIZE
         search_request.customer_id = customer_id
-        return [self.ga_service.search(search_request)]
+        result = [self.ga_service.search(search_request)]
+        logger.info(f">>>>>>>>>>>>> GA QUERY RESULT: {result}")
+
+        return result
 
     def get_fields_metadata(self, fields: List[str]) -> Mapping[str, Any]:
         """

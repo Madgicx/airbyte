@@ -15,8 +15,11 @@ from pendulum import parse, today
 
 from .custom_query_stream import CustomQuery, IncrementalCustomQuery
 from .google_ads import GoogleAds
-from .models import Customer
+from .models import CustomerDTO
 from .streams import (
+    AgeRangeView,
+    GenderView,
+    GeographicView,
     AccountPerformanceReport,
     Accounts,
     AdGroupAdLabels,
@@ -34,6 +37,7 @@ from .streams import (
     ServiceAccounts,
     ShoppingPerformanceReport,
     UserLocationReport,
+    Customer
 )
 from .utils import GAQL
 
@@ -62,7 +66,7 @@ class SourceGoogleAds(AbstractSource):
         return credentials
 
     @staticmethod
-    def get_incremental_stream_config(google_api: GoogleAds, config: Mapping[str, Any], customers: List[Customer]):
+    def get_incremental_stream_config(google_api: GoogleAds, config: Mapping[str, Any], customers: List[CustomerDTO]):
         end_date = config.get("end_date")
         if end_date:
             end_date = min(today(), parse(end_date)).to_date_string()
@@ -76,7 +80,7 @@ class SourceGoogleAds(AbstractSource):
         return incremental_stream_config
 
     def get_account_info(self, google_api: GoogleAds, config: Mapping[str, Any]) -> Iterable[Iterable[Mapping[str, Any]]]:
-        dummy_customers = [Customer(id=_id) for _id in config["customer_id"].split(",")]
+        dummy_customers = [CustomerDTO(id=_id) for _id in config["customer_id"].split(",")]
         accounts_stream = ServiceAccounts(google_api, customers=dummy_customers)
         for slice_ in accounts_stream.stream_slices():
             yield accounts_stream.read_records(sync_mode=SyncMode.full_refresh, stream_slice=slice_)
@@ -95,7 +99,7 @@ class SourceGoogleAds(AbstractSource):
             google_api = GoogleAds(credentials=self.get_credentials(config))
 
             accounts = self.get_account_info(google_api, config)
-            customers = Customer.from_accounts(accounts)
+            customers = CustomerDTO.from_accounts(accounts)
             # Check custom query request validity by sending metric request with non-existant time window
             for customer in customers:
                 for query in config.get("custom_queries", []):
@@ -124,7 +128,7 @@ class SourceGoogleAds(AbstractSource):
         config = self._validate_and_transform(config)
         google_api = GoogleAds(credentials=self.get_credentials(config))
         accounts = self.get_account_info(google_api, config)
-        customers = Customer.from_accounts(accounts)
+        customers = CustomerDTO.from_accounts(accounts)
         non_manager_accounts = [customer for customer in customers if not customer.is_manager_account]
         incremental_config = self.get_incremental_stream_config(google_api, config, customers)
         non_manager_incremental_config = self.get_incremental_stream_config(google_api, config, non_manager_accounts)
@@ -136,6 +140,10 @@ class SourceGoogleAds(AbstractSource):
             Accounts(**incremental_config),
             CampaignLabels(google_api, customers=customers),
             ClickView(**incremental_config),
+            Customer(**incremental_config),
+            AgeRangeView(**incremental_config),
+            GenderView(**incremental_config),
+            GeographicView(**incremental_config),
         ]
         # Metrics streams cannot be requested for a manager account.
         if non_manager_accounts:

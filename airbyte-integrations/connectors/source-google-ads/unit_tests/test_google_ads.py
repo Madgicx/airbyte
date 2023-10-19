@@ -11,7 +11,7 @@ from freezegun import freeze_time
 from google.auth import exceptions
 from pendulum.tz.timezone import Timezone
 from source_google_ads.google_ads import GoogleAds
-from source_google_ads.models import Customer
+from source_google_ads.models import CustomerDTO
 from source_google_ads.streams import IncrementalGoogleAdsStream, chunk_date_range, get_date_params
 
 from .common import MockGoogleAdsClient, MockGoogleAdsService
@@ -126,10 +126,10 @@ def test_get_date_params(customers):
 @freeze_time("2022-01-30 03:21:34", tz_offset=0)
 def test_get_date_params_with_time_zone():
     time_zone_chatham = Timezone("Pacific/Chatham")  # UTC+12:45
-    customer = Customer(id="id", time_zone=time_zone_chatham, is_manager_account=False)
+    customer = CustomerDTO(id="id", time_zone=time_zone_chatham, is_manager_account=False)
     mock_start_date_chatham = pendulum.today(tz=time_zone_chatham).subtract(days=1).to_date_string()
     time_zone_honolulu = Timezone("Pacific/Honolulu")  # UTC-10:00
-    customer_2 = Customer(id="id_2", time_zone=time_zone_honolulu, is_manager_account=False)
+    customer_2 = CustomerDTO(id="id_2", time_zone=time_zone_honolulu, is_manager_account=False)
     mock_start_date_honolulu = pendulum.today(tz=time_zone_honolulu).subtract(days=1).to_date_string()
 
     mock_conversion_window_days = 14
